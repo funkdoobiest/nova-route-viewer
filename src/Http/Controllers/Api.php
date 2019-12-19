@@ -14,6 +14,27 @@ class Api
      */
     public function getRoutes()
     {
+        $client = new \GuzzleHttp\Client();
+        $url = config('app.portal_url').'/api/routes';
+
+        $result = $client->get($url,
+            [
+                'verify' => false
+            ]);
+
+        $response = json_decode($result->getBody(), true);
+
+        return response()->json($response);
+    }
+
+
+    /**
+     * Return all the registered routes.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getRoutesAdmin()
+    {
         $routes = collect(Route::getRoutes())->map(function ($route, $index) {
             $routeName = $route->action['as'] ?? '';
             if (Str::endsWith($routeName, '.')) {

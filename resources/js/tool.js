@@ -5,5 +5,10 @@ Nova.booting((Vue, router) => {
             path: '/route-viewer',
             component: require('./components/Tool'),
         },
+        {
+            name: 'route-viewer-admin',
+            path: '/route-viewer-admin',
+            component: require('./components/ToolAdmin'),
+        },
     ])
 })

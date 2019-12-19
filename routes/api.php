@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/routes', 'Sbine\RouteViewer\Http\Controllers\Api@getRoutes');
+Route::get('/routes/admin', 'Sbine\RouteViewer\Http\Controllers\Api@getRoutesAdmin');
